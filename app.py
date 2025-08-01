@@ -123,7 +123,7 @@ if prompt := st.chat_input("Enter your query..."):
             with st.spinner("Processing..."):
                 try:
                     result = st.session_state.sales_system.run_query(prompt)
-                    res_formatted = generate_markdown_output(result)      
+                    # res_formatted = generate_markdown_output(result)      
                     if result and 'agent_out' in result:
                         response = result['agent_out']['messages'][0].content
                         pretty_response = prettify_response(response)
