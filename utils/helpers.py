@@ -64,7 +64,7 @@ def clear_conversation_memory():
 
 
 # Ensure your OpenAI API key is set
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 def generate_markdown_output(agent_data: dict) -> str:
     """
