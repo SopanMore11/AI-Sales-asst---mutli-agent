@@ -4,7 +4,7 @@ from main import SalesSystem
 import json
 import re
 import pandas as pd
-from utils.helpers import generate_markdown_output
+# from utils.helpers import generate_markdown_output
 
 # ---------- Helper Function ----------
 def prettify_response(raw_text):
