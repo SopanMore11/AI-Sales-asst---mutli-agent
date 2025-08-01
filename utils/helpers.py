@@ -65,37 +65,37 @@ def clear_conversation_memory():
 
 
 
-def generate_markdown_output(agent_data: dict) -> str:
-    """
-    Uses an LLM to process agent data and return a structured markdown output.
-    """
-    llm = ChatGroq(model="gemma2-9b-it", temperature=0.3)
+# def generate_markdown_output(agent_data: dict) -> str:
+#     """
+#     Uses an LLM to process agent data and return a structured markdown output.
+#     """
+#     llm = ChatGroq(model="gemma2-9b-it", temperature=0.3)
 
-    # --- Prompt Setup ---
-    system_message = SystemMessage(
-        content=(
-            "You are a business analyst assistant helping create concise, structured, and professional "
-            "Markdown reports based on lead qualification data. Format your response in clean Markdown."
-        )
-    )
+#     # --- Prompt Setup ---
+#     system_message = SystemMessage(
+#         content=(
+#             "You are a business analyst assistant helping create concise, structured, and professional "
+#             "Markdown reports based on lead qualification data. Format your response in clean Markdown."
+#         )
+#     )
 
-    human_prompt_template = (
-        "Here is the lead data from our agent:\n\n"
-        "{data}\n\n"
-        "Please structure this information in a clean and readable Markdown format with the following sections:\n"
-        "1. Prospect Overview\n"
-        "2. Current Digital Snapshot\n"
-        "3. Key Gaps Identified\n"
-        "4. Growth Opportunities\n\n"
-        "Use bullet points, bold labels, and emojis where relevant for visual clarity. Keep the tone professional."
-        "you you do not foud any data, please return a message saying 'No data found.'"
-    )
+#     human_prompt_template = (
+#         "Here is the lead data from our agent:\n\n"
+#         "{data}\n\n"
+#         "Please structure this information in a clean and readable Markdown format with the following sections:\n"
+#         "1. Prospect Overview\n"
+#         "2. Current Digital Snapshot\n"
+#         "3. Key Gaps Identified\n"
+#         "4. Growth Opportunities\n\n"
+#         "Use bullet points, bold labels, and emojis where relevant for visual clarity. Keep the tone professional."
+#         "you you do not foud any data, please return a message saying 'No data found.'"
+#     )
 
-    # Format agent data
-    formatted_input = "\n".join([f"- **{key}**: {value}" for key, value in agent_data.items()])
-    human_message = HumanMessage(content=human_prompt_template.format(data=formatted_input))
+#     # Format agent data
+#     formatted_input = "\n".join([f"- **{key}**: {value}" for key, value in agent_data.items()])
+#     human_message = HumanMessage(content=human_prompt_template.format(data=formatted_input))
 
-    # --- Call LLM ---
-    response = llm([system_message, human_message])
+#     # --- Call LLM ---
+#     response = llm([system_message, human_message])
 
-    return response.content
+#     return response.content
