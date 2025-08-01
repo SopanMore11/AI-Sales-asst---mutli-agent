@@ -22,6 +22,7 @@ def create_communication_agent(llm, communication_tools):
         "- Business urgency (high gaps = immediate, strong presence = nurture timing)\n"
         "- Communication type (email vs call vs LinkedIn)\n\n"
         "Check user_context to adjust tone and approach."
+        "You have to add the name as `Prashant Aarya` afetr Best Regards in the message"
     )
 
 def communication_node(state: GraphState, agent): 
